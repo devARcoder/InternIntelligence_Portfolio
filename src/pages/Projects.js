@@ -6,12 +6,13 @@ const Projects = () => {
 
   useEffect(() => {
     axios
-      .get("https://api.github.com/users/devARcoder/repos")
+      .get(process.env.REACT_APP_GITHUB_API_URL)
       .then((response) => {
         setProjects(response.data);
       })
       .catch((error) => console.error("Error fetching projects:", error));
   }, []);
+  
 
   return (
     <div className="p-8 text-center">
